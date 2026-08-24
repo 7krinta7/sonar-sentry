@@ -1,11 +1,14 @@
-function App() {
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Launch from './pages/Launch/Launch'
+import DetectionResults from './pages/DetectionResults/DetectionResults'
+
+export default function App() {
   return (
-    <main className="app">
-      <h1>Sonar Image Web App</h1>
-      <p>Phase 1 scaffolding — frontend is running.</p>
-      <p>The ML model is still under development.</p>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Launch />} />
+        <Route path="/results" element={<DetectionResults />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
-
-export default App

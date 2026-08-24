@@ -1,0 +1,23 @@
+.stepperRow {
+  padding: 0 clamp(20px, 5vw, 64px);
+  margin-top: 4px;
+}
+
+.workSurface {
+  padding: 0 clamp(20px, 5vw, 64px) 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1024px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}

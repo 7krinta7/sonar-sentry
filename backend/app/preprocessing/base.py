@@ -1,15 +1,16 @@
 from abc import ABC, abstractmethod
-from typing import Any
+
+from app.schemas.ml import PreprocessedInput
 
 
 class Preprocessor(ABC):
-    """Interface for transforming raw inputs into model-ready form.
+    """Abstract interface for input preprocessing.
 
-    A future implementation will handle image resizing, normalization,
-    channel conversion, tensor conversion and any sonar-specific
-    preprocessing. Nothing sonar-specific is implemented yet.
+    A concrete implementation will eventually convert raw image bytes into
+    whatever tensor representation the model requires.  This phase provides
+    only the interface and a no-op placeholder.
     """
 
     @abstractmethod
-    def preprocess(self, raw_input: Any) -> Any:
-        """Convert a raw input into the format expected by the model."""
+    def process(self, raw_image_bytes: bytes) -> PreprocessedInput:
+        """Convert raw image bytes into a ``PreprocessedInput``."""

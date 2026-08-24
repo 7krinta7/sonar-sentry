@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     model_path: str = ""
     model_version: str = "development"
     max_file_size_mb: int = 10
+    frontend_origin: str = "http://localhost:5173"
 
 
 @lru_cache
