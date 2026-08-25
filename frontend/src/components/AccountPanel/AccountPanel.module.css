@@ -1,0 +1,114 @@
+.panel {
+  background: var(--settings-surface, var(--gesso-surface));
+  border: 1px solid var(--settings-divider, var(--gesso-divider));
+  border-radius: var(--settings-radius-lg, var(--gesso-radius-lg));
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.panelTitle {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--settings-font-display, var(--gesso-font-display));
+}
+
+.panelSub {
+  font-size: 12px;
+  color: var(--settings-fg-muted, var(--gesso-fg-muted));
+  margin-top: -8px;
+}
+
+.avatarRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatarLg {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--settings-radius-full, var(--gesso-radius-full));
+  background: var(--settings-surface-elevated, var(--gesso-surface-elevated));
+  color: var(--settings-fg, var(--gesso-fg));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--settings-font-display, var(--gesso-font-display));
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.btnBrowse {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: var(--settings-radius-md, var(--gesso-radius-md));
+  border: 1px solid var(--settings-divider, var(--gesso-divider));
+  background: transparent;
+  color: var(--settings-fg, var(--gesso-fg));
+  cursor: pointer;
+  transition: background var(--settings-duration-fast, var(--gesso-duration-fast)) var(--settings-easing-default, var(--gesso-easing-default));
+}
+
+.btnBrowse:hover {
+  background: var(--settings-surface-elevated, var(--gesso-surface-elevated));
+}
+
+.btnBrowse:focus-visible {
+  outline: 2px solid var(--settings-fg, var(--gesso-fg));
+  outline-offset: 2px;
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--settings-fg-muted, var(--gesso-fg-muted));
+}
+
+.field select,
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="password"] {
+  font-family: var(--settings-font-body, var(--gesso-font-body));
+  font-size: 14px;
+  color: var(--settings-fg, var(--gesso-fg));
+  background: var(--settings-surface-recessed, var(--gesso-surface-recessed));
+  border: 1px solid var(--settings-divider, var(--gesso-divider));
+  border-radius: var(--settings-radius-md, var(--gesso-radius-md));
+  padding: 12px 12px;
+  transition: border-color var(--settings-duration-fast, var(--gesso-duration-fast)) var(--settings-easing-default, var(--gesso-easing-default));
+}
+
+.field select:focus-visible,
+.field input:focus-visible {
+  outline: 2px solid var(--settings-fg, var(--gesso-fg));
+  outline-offset: 1px;
+}
+
+@media (max-width: 640px) {
+  .avatarRow {
+    flex-wrap: wrap;
+  }
+}

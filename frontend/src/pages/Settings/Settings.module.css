@@ -1,0 +1,95 @@
+.settingsPage {
+  /* Scoped tokens for Settings page (amber + deep blue from reference) */
+  --gesso-canvas: #f4f3ef;
+  --gesso-surface: #e6e6e4;
+  --gesso-surface-elevated: #dddddb;
+  --gesso-surface-recessed: #eae9e5;
+  --gesso-fg: #1a1a1a;
+  --gesso-fg-muted: #5c5a55;
+  --gesso-divider: rgba(0, 0, 0, 0.04);
+  --gesso-primary: #1b2a6b;
+  --gesso-on-accent: #ffffff;
+  --gesso-accent-text: #1b2a6b;
+  --gesso-radius-sm: 4px;
+  --gesso-radius-md: 8px;
+  --gesso-radius-lg: 12px;
+  --gesso-radius-full: 9999px;
+  --gesso-font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --gesso-font-body: 'Schibsted Grotesk', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --gesso-duration-fast: 160ms;
+  --gesso-easing-default: cubic-bezier(.4, 0, .2, 1);
+
+  min-height: 100vh;
+  background: var(--gesso-canvas);
+}
+
+.headerBand {
+  padding: 24px clamp(20px, 5vw, 64px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.backRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnBack {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gesso-fg-muted);
+  padding: 8px 12px;
+  border-radius: var(--gesso-radius-md);
+  background: transparent;
+  border: 1px solid var(--gesso-divider);
+  transition: background var(--gesso-duration-fast) var(--gesso-easing-default),
+    color var(--gesso-duration-fast) var(--gesso-easing-default);
+}
+
+.btnBack:hover {
+  background: var(--gesso-surface);
+  color: var(--gesso-fg);
+}
+
+.btnBack:focus-visible {
+  outline: 2px solid var(--gesso-fg);
+  outline-offset: 2px;
+}
+
+.headerBand h1 {
+  font-size: clamp(22px, 2.4vw, 28px);
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0;
+}
+
+.headerBand p {
+  font-size: 14px;
+  color: var(--gesso-fg-muted);
+  margin: 0;
+  max-width: 60ch;
+}
+
+.settingsShell {
+  padding: 24px clamp(20px, 5vw, 64px) 64px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .settingsShell {
+    grid-template-columns: 1fr;
+  }
+}

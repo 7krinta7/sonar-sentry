@@ -1,0 +1,37 @@
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.railItem {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--settings-fg-muted, var(--gesso-fg-muted));
+  padding: 12px 16px;
+  border-radius: var(--settings-radius-md, var(--gesso-radius-md));
+  text-align: left;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background var(--settings-duration-fast, var(--gesso-duration-fast)) var(--settings-easing-default, var(--gesso-easing-default)),
+    color var(--settings-duration-fast, var(--gesso-duration-fast)) var(--settings-easing-default, var(--gesso-easing-default));
+}
+
+.railItem:hover {
+  background: var(--settings-surface, var(--gesso-surface));
+  color: var(--settings-fg, var(--gesso-fg));
+}
+
+.railItem[aria-current="true"] {
+  color: var(--settings-fg, var(--gesso-fg));
+  background: var(--settings-surface, var(--gesso-surface));
+}
+
+.railItem:focus-visible {
+  outline: 2px solid var(--settings-fg, var(--gesso-fg));
+  outline-offset: -2px;
+}

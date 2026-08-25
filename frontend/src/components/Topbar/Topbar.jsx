@@ -4,8 +4,8 @@ import styles from './Topbar.module.css'
 const NAV_ITEMS = [
   { key: 'launch', label: 'Launch', to: '/' },
   { key: 'uploads', label: 'My Uploads', to: '/results' },
-  { key: 'reports', label: 'Reports', to: null },
-  { key: 'settings', label: 'Settings', to: null },
+  { key: 'reports', label: 'Reports', to: '/reports' },
+  { key: 'settings', label: 'Settings', to: '/settings' },
 ]
 
 export default function Topbar({ activePage = 'launch' }) {

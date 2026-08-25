@@ -1,0 +1,148 @@
+.panel {
+  background: var(--settings-surface, var(--gesso-surface));
+  border: 1px solid var(--settings-divider, var(--gesso-divider));
+  border-radius: var(--settings-radius-lg, var(--gesso-radius-lg));
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.panelTitle {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--settings-font-display, var(--gesso-font-display));
+}
+
+.panelSub {
+  font-size: 12px;
+  color: var(--settings-fg-muted, var(--gesso-fg-muted));
+}
+
+.fieldRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--settings-fg-muted, var(--gesso-fg-muted));
+}
+
+.field select {
+  font-family: var(--settings-font-body, var(--gesso-font-body));
+  font-size: 14px;
+  color: var(--settings-fg, var(--gesso-fg));
+  background: var(--settings-surface-recessed, var(--gesso-surface-recessed));
+  border: 1px solid var(--settings-divider, var(--gesso-divider));
+  border-radius: var(--settings-radius-md, var(--gesso-radius-md));
+  padding: 12px 12px;
+  transition: border-color var(--settings-duration-fast, var(--gesso-duration-fast)) var(--settings-easing-default, var(--gesso-easing-default));
+}
+
+.field select:focus-visible {
+  outline: 2px solid var(--settings-fg, var(--gesso-fg));
+  outline-offset: 1px;
+}
+
+.toggleList {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 0;
+}
+
+.toggleRow + .toggleRow {
+  border-top: 1px solid var(--settings-divider, var(--gesso-divider));
+}
+
+.toggleText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.toggleTitle {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.toggleMeta {
+  font-size: 12px;
+  color: var(--settings-fg-muted, var(--gesso-fg-muted));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.switchTrack {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--settings-radius-full, var(--gesso-radius-full));
+  background: var(--settings-surface-recessed, var(--gesso-surface-recessed));
+  transition: background var(--settings-duration-fast, var(--gesso-duration-fast)) var(--settings-easing-default, var(--gesso-easing-default));
+  pointer-events: none;
+}
+
+.switchTrack::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--settings-radius-full, var(--gesso-radius-full));
+  background: var(--settings-canvas, var(--gesso-canvas));
+  transition: transform var(--settings-duration-fast, var(--gesso-duration-fast)) var(--settings-easing-default, var(--gesso-easing-default));
+}
+
+.switch input:checked + .switchTrack {
+  background: var(--settings-fg, var(--gesso-fg));
+}
+
+.switch input:checked + .switchTrack::after {
+  transform: translateX(20px);
+}
+
+.switch input:focus-visible + .switchTrack {
+  outline: 2px solid var(--settings-fg, var(--gesso-fg));
+  outline-offset: 2px;
+}

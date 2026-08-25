@@ -1,0 +1,67 @@
+.saveBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 20px 24px;
+  background: var(--settings-surface, var(--gesso-surface));
+  border: 1px solid var(--settings-divider, var(--gesso-divider));
+  border-radius: var(--settings-radius-lg, var(--gesso-radius-lg));
+}
+
+.saveBarInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.saveBarInfo strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.saveBarInfo span {
+  font-size: 12px;
+  color: var(--settings-fg-muted, var(--gesso-fg-muted));
+}
+
+.btnPrimary {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 28px;
+  border-radius: var(--settings-radius-md, var(--gesso-radius-md));
+  border: none;
+  background: var(--settings-fg, var(--gesso-fg));
+  color: var(--settings-canvas, var(--gesso-canvas));
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background var(--settings-duration-fast, var(--gesso-duration-fast)) var(--settings-easing-default, var(--gesso-easing-default)),
+    transform 80ms var(--settings-easing-default, var(--gesso-easing-default));
+}
+
+.btnPrimary:hover {
+  background: color-mix(in oklch, var(--settings-fg, var(--gesso-fg)) 88%, white);
+}
+
+.btnPrimary:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.btnPrimary:focus-visible {
+  outline: 2px solid var(--settings-fg, var(--gesso-fg));
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .saveBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btnPrimary {
+    justify-content: center;
+  }
+}
