@@ -53,6 +53,35 @@ class InferenceFailedError(PredictError):
     message = "Unable to analyze the image."
 
 
+class InvalidMetadataError(PredictError):
+    status_code = 400
+    error_code = "INVALID_METADATA"
+    message = "The provided metadata is invalid."
+
+    def __init__(self, detail: str | None = None) -> None:
+        if detail:
+            self.message = detail
+        super().__init__()
+
+
+class RunNotFoundError(PredictError):
+    status_code = 404
+    error_code = "RUN_NOT_FOUND"
+    message = "The requested run was not found."
+
+
+class ReportNotFoundError(PredictError):
+    status_code = 404
+    error_code = "REPORT_NOT_FOUND"
+    message = "The requested report was not found."
+
+
+class DatabaseError(PredictError):
+    status_code = 500
+    error_code = "DATABASE_ERROR"
+    message = "A database error occurred."
+
+
 def register_exception_handler(application: FastAPI) -> None:
     """Attach a handler that converts ``PredictError`` into JSON responses."""
 

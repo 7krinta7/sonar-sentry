@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 from app.preprocessing.base import Preprocessor
-from app.services.model_service import ModelService
 from app.schemas.ml import ModelMetadata, PredictionResult, PreprocessedInput
+from app.services.model_service import ModelService
 
 
 class InferenceService:

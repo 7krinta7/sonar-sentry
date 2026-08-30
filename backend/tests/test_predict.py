@@ -125,7 +125,7 @@ class TestFileTooLarge:
             max_file_size_mb=0,
         )
         with TestClient(app) as c:
-            with patch("app.api.routes.get_settings", return_value=tiny):
+            with patch("app.api.routes.predict.get_settings", return_value=tiny):
                 big_content = b"\xff\xd8\xff\xe0" + b"\x00" * 2000
                 resp = c.post(
                     "/api/predict",
@@ -159,4 +159,5 @@ class TestHealthUnchanged:
         with TestClient(app) as c:
             resp = c.get("/health")
             assert resp.status_code == 200
-            assert resp.json() == {"status": "ok", "model_loaded": True}
+            assert resp.json()["status"] == "ok"
+            assert resp.json()["model"]["loaded"] is True

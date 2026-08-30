@@ -20,7 +20,9 @@ def test_health_returns_model_loaded_true():
         response = c.get("/health")
         assert response.status_code == 200
         body = response.json()
-        assert body == {"status": "ok", "model_loaded": True}
+        assert body["status"] == "ok"
+        assert body["model"]["loaded"] is True
+        assert body["database"]["status"] == "ok"
 
 
 def test_docs_loads():

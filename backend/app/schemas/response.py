@@ -3,12 +3,15 @@ from pydantic import BaseModel
 
 class HealthResponse(BaseModel):
     status: str
-    model_loaded: bool
+    model: dict | None = None
+    database: dict | None = None
+    model_loaded: bool | None = None
 
 
 class ErrorDetail(BaseModel):
     code: str
     message: str
+    details: dict | None = None
 
 
 class ErrorResponse(BaseModel):

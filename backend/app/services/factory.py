@@ -10,6 +10,7 @@ def create_inference_service(settings: Settings | None = None) -> InferenceServi
     Supported providers
     -------------------
     * ``mock`` — deterministic placeholder (no real ML).
+    * ``sonar`` — placeholder for the real sonar model (not yet implemented).
 
     Raises
     ------
@@ -23,10 +24,14 @@ def create_inference_service(settings: Settings | None = None) -> InferenceServi
 
     if settings.model_provider == "mock":
         model = MockModelService()
+    elif settings.model_provider == "sonar":
+        from app.services.sonar_model_service import SonarModelService
+
+        model = SonarModelService(model_path=settings.model_path)
     else:
         raise ValueError(
             f"Unsupported MODEL_PROVIDER: {settings.model_provider!r}. "
-            "Supported providers: mock"
+            "Supported providers: mock, sonar"
         )
 
     service = InferenceService(preprocessor=preprocessor, model=model)
